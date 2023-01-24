@@ -1,8 +1,6 @@
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
-
 import datatype.*;
 
 public class solution extends shortcut {
@@ -12,7 +10,7 @@ public class solution extends shortcut {
     
     public static void solution(int[] nums) {
         // initialize set for solutions
-        Set<StrDoub> solutions = new HashSet<>();
+        Set<String> solutions = new HashSet<>();
 
         // nums permutation
         permute(nums, 0);
@@ -32,16 +30,12 @@ public class solution extends shortcut {
             Set<StrDoub> ans = rec(numTemp);
 
             // append to solutions set
-            solutions.addAll(ans);
+            for (StrDoub item : ans){
+                solutions.add(item.expr);
+            }
         }
 
-        // filter solutions to only if result equal to 24
-        Set<StrDoub> filteredSet = solutions.stream()
-                .filter(x -> x.res == 24)
-                .collect(Collectors.toSet());
-
-        // call for output processing
-        main.output(filteredSet);
+        main.output(solutions);
     }
 
     // permute through numbers
@@ -129,7 +123,9 @@ public class solution extends shortcut {
                         for (StrDoub y : tailRes){
                             if (operator != '/' || (operator == '/' && y.res != 0)){
                                 StrDoub ans = operate(operator, x, y, arr.length != 4);
-                                results.add(ans);
+                                if ((arr.length == 4 && ans.res.equals(24.0)) || arr.length != 4){
+                                    results.add(ans);
+                                }
                             } 
                         }
                     }                

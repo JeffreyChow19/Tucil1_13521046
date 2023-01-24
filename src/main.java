@@ -1,7 +1,6 @@
 import java.util.*;
 import java.security.SecureRandom;
 import java.io.*;
-import datatype.*;
 
 public class main extends shortcut {
     // global variables
@@ -147,7 +146,7 @@ public class main extends shortcut {
 
     }
 
-    public static void output(Set<StrDoub> solutions){
+    public static void output(Set<String> solutions){
         // end timer
         endTime = System.currentTimeMillis();
 
@@ -179,19 +178,19 @@ public class main extends shortcut {
         }
     }
 
-    public static void outputConsole(Set<StrDoub> solutions){
+    public static void outputConsole(Set<String> solutions){
         println((solutions.size() == 0) ? "There is no solution" : ("There are " + solutions.size() + " solutions\n"));
         int i = 1;
 
         // print all results
-        for (StrDoub solution : solutions){
+        for (String solution : solutions){
             print(i + ". ");
-            println(solution.expr);
+            println(solution);
             i++;
         }
     }
 
-    public static void outputFile(Set<StrDoub> solutions) throws IOException{
+    public static void outputFile(Set<String> solutions) throws IOException{
         // user input filename
         print("Output file name [___.txt] : ");
         String filename = scan.nextLine();
@@ -204,8 +203,8 @@ public class main extends shortcut {
 
         // write contents
         int i = 1;
-        for (StrDoub solution : solutions){
-            output += (i + ". " + solution.expr +'\n');
+        for (String solution : solutions){
+            output += (i + ". " + solution +'\n');
             i++;
         }
 
