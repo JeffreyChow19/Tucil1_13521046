@@ -71,7 +71,7 @@ public class main extends shortcut {
             while (!reinput && i < inputs.length){
                 int ascii = (int)(inputs[i].toLowerCase().charAt(0));
                 if (inputs[i].length() > 1){
-                    reinput = (inputs[i] != "10");
+                    reinput = !(inputs[i].equals("10"));
                 } else if ((ascii == 97) || (ascii == 106) || (ascii == 107) || (ascii == 113) || (ascii >= 50 && ascii <= 57)) {
                     reinput = false;
                 } else {

@@ -133,7 +133,7 @@ public class solution extends shortcut {
             }   
 
         } 
-        else { // if arr.length == 0
+        else { // if arr.length == 1
             StrDoub res = new StrDoub(Integer.toString(arr[0].intValue()), arr[0]);
             results.add(res);
         }
