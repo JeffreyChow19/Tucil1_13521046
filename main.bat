@@ -3,3 +3,4 @@ javac -d ../bin *.java
 cd ../bin
 java main
 cd ..
+cmd /k
